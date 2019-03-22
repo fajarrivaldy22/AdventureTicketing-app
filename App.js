@@ -29,7 +29,7 @@ class Loading extends Component{
         this.setState(previouseState=>(
           {initialLoading:!previouseState.initialLoading}
         ))
-      ),3000)
+      ),300)
   }
   render() {
     if(this.state.initialLoading){

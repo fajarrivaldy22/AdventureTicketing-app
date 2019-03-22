@@ -8,18 +8,10 @@ import {
 } from 'react-navigation';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import{ Icon } from 'react-native-elements';
-import CustomHeader from '../Component/CustomHeader';
-import HeaderStyles from '../../HeaderStyles'
 import HomeScreen from '../Views/Home/Home'
 import EventList from '../Views/Home/EventList'
 import InboxScreen from '../Views/Inbox/inbox'
-import WelcomeScreen from '.././Views/WelcomeScreen'
 
-
-let headerDefaultNavigationConfig = {
-    header: props => <CustomHeader {...props}/>,
-    HeaderStyles
-};
 
 const Tab1 = createStackNavigator(
     {
@@ -33,14 +25,14 @@ const Tab1 = createStackNavigator(
         Tab1Details:{
             screen:EventList,
             navigationOptions:{
-                headerTitle:'Eventlist'
+            
             }
         },
     },
     {
         initialRouteName:'Tab1',
         navigationOptions:{
-            ...headerDefaultNavigationConfig
+            
         }
     }
 );
@@ -74,12 +66,25 @@ const DashboardTabRoutes = createMaterialBottomTabNavigator(
     {
         Tab1:{
             screen:Tab1,
+            navigationOptions:{
+                labeled:false,
+                tabBarIcon:({tintColor,focused})=><Icon name='home' color={tintColor} focused={focused} size={27}/>
+            }
         },
-        Tab2:Tab2
+        Tab2:{
+            screen:Tab2,
+            navigationOptions:{
+                labeled:false,
+                tabBarIcon:({tintColor,focused})=><Icon name='mail' color={tintColor} focused={focused} size={27}/>
+            }
+        }
     },
     {
-        animationEnabled:true
+        animationEnabled:true,
         
+        barStyle:{
+            backgroundColor:'#7c4325'
+        }
     });
 
 export default createAppContainer(DashboardTabRoutes);

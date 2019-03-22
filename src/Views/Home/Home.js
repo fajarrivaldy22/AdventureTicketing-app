@@ -2,8 +2,11 @@ import React,{Component} from 'react';
 import {
     View,
     Text,
-    Button
+    Button,
+    StyleSheet,
+    ScrollView
 }from 'react-native';
+import {Icon,Avatar} from 'react-native-elements'
 
 export default class Home extends Component{
     static navigationOptions = {
@@ -11,11 +14,32 @@ export default class Home extends Component{
     }
     render(){
         return(
-            <View>
-                <Button raised onPress={() => this.props.navigation.navigate("Tab1Details")} title='bismilah'/>
-            
+            <View style={styles.container}>
+                <ScrollView>
+                    <View style={styles.accountInformation.avatar}>
+                        <Avatar
+                            rounded
+                            source={{
+                                uri:
+                                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                            }}
+                            size='medium'
+                        />
+
+
+                    </View>
+                </ScrollView>
             </View>
         )
     }
-    //<Button title='go' onPress={this.props.navigation.navigate('EventList')}/>
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        alignItems:'center'
+    },
+    accountInformation:{
+        
+    }
+});

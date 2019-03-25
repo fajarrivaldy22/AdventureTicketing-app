@@ -6,13 +6,31 @@ import {
     StyleSheet,
     ScrollView
 }from 'react-native';
+import {db} from '../../Database/Database'
 import {Icon,Avatar,Badge,Divider} from 'react-native-elements'
 
 
 export default class Home extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            id:0,
+        }
+    }
     static navigationOptions = {
         title : 'Home'
     }
+
+    sendTodDatabase = () => {
+        db.ref('Users/').set({
+            id:this.state.id,
+            name:'fajar'
+        }).then(
+            alert('sent'),
+            this.setState(id=>{this.id++})
+            );
+    }
+
     render(){
         return(
             <View style={styles.container}>
@@ -38,12 +56,15 @@ export default class Home extends Component{
                             <Icon name='add-circle' color='orange' size={57}/>
                             <Icon name='add-circle' color='orange' size={57}/>
                             <Icon name='add-circle' color='orange' size={57}/>
+                            <Button title='send' onPress={this.sendTodDatabase}/>
                     </View>
                 </ScrollView>
             </View>
         )
     }
 }
+
+
 
 const styles = StyleSheet.create({
     container:{

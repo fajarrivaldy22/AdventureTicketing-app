@@ -16,7 +16,7 @@ export default class Home extends Component{
         return(
             <View style={styles.container}>
                 <ScrollView>
-                    <View style={styles.accountInformation.avatar}>
+                    <View style={styles.accountInformation}>
                         <Avatar
                             rounded
                             source={{
@@ -25,8 +25,11 @@ export default class Home extends Component{
                             }}
                             size='medium'
                         />
-
-
+                        <View style={styles.accountDescription}>
+                            <Text style={styles.accountName}>adelya</Text>
+                            <Text>cantik</Text>
+                        </View>
+                        <View style={styles.divider}/>
                     </View>
                 </ScrollView>
             </View>
@@ -37,9 +40,23 @@ export default class Home extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:'center'
+
     },
     accountInformation:{
-        
+        padding:5,
+        flex:1,
+        flexDirection:'row',
+        backgroundColor:'#ddd'
+    },
+    accountDescription:{
+        marginLeft:10,
+        backgroundColor:'white'
+    },
+    accountName:{
+        fontSize:17,
+    },
+    divider:{
+        height:1,
+        backgroundColor:'#ddd'
     }
 });

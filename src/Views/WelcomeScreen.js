@@ -12,13 +12,10 @@ export default class WelcomeScreen extends Component{
         return(
             <View style = {styles.container}>
                 <Text style={styles.welcomeText}>Welcome Screen</Text>
-                <Button title='go' onPress={()=>this.props.navigation.navigate('Tab1')}></Button>
             </View>
         )
     }
 }
-
-
 
 const styles = StyleSheet.create({
     container:{

@@ -11,6 +11,7 @@ import{ Icon } from 'react-native-elements';
 import HomeScreen from '../Views/Home/Home'
 import EventList from '../Views/Home/EventList'
 import InboxScreen from '../Views/Inbox/inbox'
+import AccountScreen from '../Views/Account/Account'
 
 
 const Tab1 = createStackNavigator(
@@ -60,6 +61,12 @@ Tab1.navigationOptions = ({navigation})=>{
     }
 }
 
+const Tab3 = createStackNavigator({
+    TabAccount:{
+        screen:AccountScreen
+    }
+})
+
 
 
 const DashboardTabRoutes = createMaterialBottomTabNavigator(
@@ -76,6 +83,13 @@ const DashboardTabRoutes = createMaterialBottomTabNavigator(
             navigationOptions:{
                 labeled:false,
                 tabBarIcon:({tintColor,focused})=><Icon name='mail' color={tintColor} focused={focused} size={27}/>
+            }
+        },
+        Tab3:{
+            screen:Tab3,
+            navigationOptions:{
+                labeled:false,
+                tabBarIcon:({tintColor,focused})=><Icon name='person' color={tintColor} focused={focused} size={27}/>
             }
         }
     },

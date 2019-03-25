@@ -4,14 +4,14 @@ import {
     Text
 }from 'react-native';
 
-export default class EventList extends Component{
+export default class AccountScreen extends Component{
     static navigationOptions = {
         title:'Account',
     };
     render(){
         return(
             <View>
-                <Text>EventList</Text>
+                <Text>AccountScreen</Text>
             </View>
         )
     }

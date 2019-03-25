@@ -6,7 +6,8 @@ import {
     StyleSheet,
     ScrollView
 }from 'react-native';
-import {Icon,Avatar} from 'react-native-elements'
+import {Icon,Avatar,Badge,Divider} from 'react-native-elements'
+
 
 export default class Home extends Component{
     static navigationOptions = {
@@ -26,10 +27,13 @@ export default class Home extends Component{
                             size='medium'
                         />
                         <View style={styles.accountDescription}>
-                            <Text style={styles.accountName}>adelya</Text>
-                            <Text>cantik</Text>
-                        </View>
-                        <View style={styles.divider}/>
+                            <Text style={styles.accountName}>Muhamad Fajar R</Text>
+                            <Text style={styles.accountComunity}>TRACEKCEK</Text>
+                        </View>  
+                    </View>
+                    <Divider style={styles.divider}/>
+                    <View>
+
                     </View>
                 </ScrollView>
             </View>
@@ -43,20 +47,29 @@ const styles = StyleSheet.create({
 
     },
     accountInformation:{
-        padding:5,
+        padding:9.7,
         flex:1,
         flexDirection:'row',
-        backgroundColor:'#ddd'
+        
     },
     accountDescription:{
         marginLeft:10,
-        backgroundColor:'white'
+        
     },
     accountName:{
+        color:'#444444',
+        fontSize:17,
+        fontWeight:'bold'
+    },
+    accountComunity:{
+        color:'#606060',
         fontSize:17,
     },
     divider:{
-        height:1,
+        height:1.3,
         backgroundColor:'#ddd'
+    },
+    listTicketProduct:{
+
     }
 });

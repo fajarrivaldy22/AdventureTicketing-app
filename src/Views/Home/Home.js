@@ -32,8 +32,12 @@ export default class Home extends Component{
                         </View>  
                     </View>
                     <Divider style={styles.divider}/>
-                    <View>
-
+                    <View style={styles.containerProduct}>
+                            <Icon name='add-circle' color='orange' size={57}/>
+                            <Icon name='add-circle' color='orange' size={57}/>
+                            <Icon name='add-circle' color='orange' size={57}/>
+                            <Icon name='add-circle' color='orange' size={57}/>
+                            <Icon name='add-circle' color='orange' size={57}/>
                     </View>
                 </ScrollView>
             </View>
@@ -44,7 +48,6 @@ export default class Home extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-
     },
     accountInformation:{
         padding:9.7,
@@ -69,7 +72,9 @@ const styles = StyleSheet.create({
         height:1.3,
         backgroundColor:'#ddd'
     },
-    listTicketProduct:{
-
+    containerProduct:{
+        padding:7,
+        flexDirection:'row',
+        justifyContent:'center'
     }
 });

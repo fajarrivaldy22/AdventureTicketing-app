@@ -7,36 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import { View} from 'react-native';
-import MainNavigation from './src/Main/MainNavigation'
-import WelcomeScreen from './src/Views/WelcomeScreen';
+import Main from './src/Main/Main'
 
 export default class App extends Component {
   render() {
     return (
-        <Loading/>
+        <Main/>
     );
   }
 }
-
-class Loading extends Component{
-  constructor(props){
-    super(props);
-      this.state={
-        initialLoading:true
-      };
-      setTimeout(()=>(
-        this.setState(previouseState=>(
-          {initialLoading:!previouseState.initialLoading}
-        ))
-      ),300)
-  }
-  render() {
-    if(this.state.initialLoading){
-      return <WelcomeScreen/>
-    }else{
-      return <MainNavigation/>
-    }
-  }
-}
-

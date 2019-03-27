@@ -8,13 +8,14 @@ import {
 }from 'react-native';
 import {db} from '../../Database/Database'
 import {Icon,Avatar,Badge,Divider} from 'react-native-elements'
-
+import AccountHome from './Component/AccountHome'
 
 export default class Home extends Component{
     constructor(props){
         super(props);
         this.state = {
             id:0,
+            logedIn:false
         }
     }
     static navigationOptions = {
@@ -22,36 +23,25 @@ export default class Home extends Component{
     }
 
     sendTodDatabase = () => {
-        db.ref('Users/').set({
+        db.ref('Users/').push({
             id:this.state.id,
             name:'fajar'
         }).then(
             alert('sent'),
-            this.setState(id=>{this.id++})
-            );
+            this.setState({
+                id:this.state.id++
+            })
+        );
     }
 
     render(){
         return(
             <View style={styles.container}>
                 <ScrollView>
-                    <View style={styles.accountInformation}>
-                        <Avatar
-                            rounded
-                            source={{
-                                uri:
-                                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-                            }}
-                            size='medium'
-                        />
-                        <View style={styles.accountDescription}>
-                            <Text style={styles.accountName}>Muhamad Fajar R</Text>
-                            <Text style={styles.accountComunity}>TRACEKCEK</Text>
-                        </View>  
-                    </View>
+                    <AccountHome/>
                     <Divider style={styles.divider}/>
                     <View style={styles.containerProduct}>
-                            <Icon name='add-circle' color='orange' size={57}/>
+                            <Icon name='add-circle' color='orange' size={57} onPress={()=>alert('pressed')}/>
                             <Icon name='add-circle' color='orange' size={57}/>
                             <Icon name='add-circle' color='orange' size={57}/>
                             <Icon name='add-circle' color='orange' size={57}/>
@@ -99,3 +89,18 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     }
 });
+
+/**<View style={styles.accountInformation}>
+                        <Avatar
+                            rounded
+                            source={{
+                                uri:
+                                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                            }}
+                            size='medium'
+                        />
+                        <View style={styles.accountDescription}>
+                            <Text style={styles.accountName}>Muhamad Fajar R</Text>
+                            <Text style={styles.accountComunity}>TRACEKCEK</Text>
+                        </View>  
+                    </View> */

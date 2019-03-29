@@ -23,7 +23,7 @@ export default class Home extends Component{
     }
 
     sendTodDatabase = () => {
-        db.ref('Users/').push({
+        db.database().ref('Users/').push({
             id:this.state.id,
             name:'fajar'
         }).then(

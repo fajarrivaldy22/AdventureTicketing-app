@@ -10,10 +10,6 @@ export default class LoginScreen extends Component{
             email:'',
             password:''
         }
-
-        processSignIn = () =>{
-            db.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then(()=>this.props.action).catch(error=>alert('somthing wrong'))
-        }
     }
     render(){
         return(
@@ -31,7 +27,17 @@ export default class LoginScreen extends Component{
                 />
                 <Button 
                 title='Login'
-                onPress={()=> db.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then(this.props.action).catch(error=>alert('somthing wrong'))}/>
+                onPress={()=> db.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then(this.props.action.params).catch(error=>alert('somthing wrong'))}/>
+
+                <Text style={styles.textSignUp}>
+                    don't have account ?  
+                    <Text 
+                        style={{color:'#4286f4'}} 
+                        onPress={()=>this.props.navigation.navigate('SignUpScreen')}
+                    >
+                        {' SignUp'}
+                    </Text>
+                </Text>
             </View>
         )
     }
@@ -50,6 +56,13 @@ const styles = StyleSheet.create({
         width:300,
         backgroundColor:'white',
         margin:10,
-        borderRadius:9
+        borderRadius:9,
+        fontSize:20
+    },
+    textSignUp:{
+        marginTop:5,
+        fontSize:17,
+        color:'#262626',
+        fontWeight:'bold'
     }
 })

@@ -11,7 +11,7 @@ import { View} from 'react-native';
 import MainNavigation from './MainNavigation'
 import WelcomeScreen from '../Views/WelcomeScreen';
 import LoginScreen from './../Views/Authentication/LoginScreen'
-
+import AuthenticationNavigator from '../Views/Authentication/AutheticationNavigator'
 export default class Main extends Component {
     render() {
         return (
@@ -48,7 +48,7 @@ class Loading extends Component{
             if(this.state.LoggedIn){
                 return <MainNavigation/>
             }else{
-                return <LoginScreen action={this.LoggedInRequest}/>
+                return <AuthenticationNavigator action={()=>alert('heloo')}/>
             }
         }
     }

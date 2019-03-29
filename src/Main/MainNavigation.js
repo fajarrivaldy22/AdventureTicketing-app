@@ -97,7 +97,7 @@ const DashboardTabRoutes = createMaterialBottomTabNavigator(
         animationEnabled:true,
         
         barStyle:{
-            backgroundColor:'#7c4325'
+            backgroundColor:'white'
         }
     });
 

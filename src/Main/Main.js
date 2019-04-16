@@ -12,6 +12,9 @@ import MainNavigation from './MainNavigation'
 import WelcomeScreen from '../Views/WelcomeScreen';
 import LoginScreen from './../Views/Authentication/LoginScreen'
 import AuthenticationNavigator from '../Views/Authentication/AutheticationNavigator'
+import {createStore} from 'redux'
+
+
 export default class Main extends Component {
     render() {
         return (
@@ -48,7 +51,7 @@ class Loading extends Component{
             if(this.state.LoggedIn){
                 return <MainNavigation/>
             }else{
-                return <AuthenticationNavigator action={()=>alert('heloo')}/>
+                return <AuthenticationNavigator action={'dari Main'}/>
             }
         }
     }

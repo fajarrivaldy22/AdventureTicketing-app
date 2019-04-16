@@ -26,9 +26,9 @@ export default class LoginScreen extends Component{
                     onChangeText={(text)=>this.setState({password:text})}    
                 />
                 <Button 
-                title='Login'
-                onPress={()=> db.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then(this.props.action.params).catch(error=>alert('somthing wrong'))}/>
-
+                    title='Login'
+                    onPress={()=> db.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then(this.props.action).catch(error=>alert('somthing wrong'))}/>
+                <Text>{this.props.actio}</Text>
                 <Text style={styles.textSignUp}>
                     don't have account ?  
                     <Text 
